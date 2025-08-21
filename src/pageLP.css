@@ -1,0 +1,668 @@
+/* 기본 설정 */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Noto Sans KR', 'Malgun Gothic', '맑은 고딕', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: linear-gradient(to bottom right, #e0f7fa, #b3e5fc);
+  color: #111827;
+  height: 100vh;
+  font-size: 16px;
+}
+
+/* page1Styles.css에서 필요한 스타일들 추가 */
+.page1-container {
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: #ffffffcc;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.button-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
+  
+    .page-container {
+    padding: 0 0 2rem 0;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  /* 활동 설명 */
+.scenario-box {
+  background: #ffffff;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  margin-bottom: 2rem;
+  text-align: center;
+}
+  
+  .scenario-title {
+    color: #2563eb;
+    margin-bottom: 0.5rem;
+    font-size: 1.4rem;
+    font-family: 'Noto Sans KR', 'Malgun Gothic', '맑은 고딕', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  }
+  
+  .scenario-description {
+    color: #374151;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    font-family: 'Noto Sans KR', 'Malgun Gothic', '맑은 고딕', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  }
+  
+  /* 메인 콘텐츠 영역 */
+.main-content {
+  display: flex !important;
+  gap: 2rem !important;
+  flex-wrap: wrap !important;
+  margin-bottom: 2rem !important;
+  width: 100% !important;
+  max-width: 1200px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  box-sizing: border-box !important;
+}
+
+.left-panel,
+.right-panel {
+  flex: 1;
+  min-width: 350px;
+}
+  
+  /* Handsontable 관련 스타일 */
+.excel-table-container {
+  background: #ffffff;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  margin-top: 2rem;
+}
+  
+  .excel-table-container h3 {
+    color: #2563eb;
+    margin-bottom: 1rem;
+    text-align: center;
+    font-size: 1.3rem;
+  }
+  
+  #excel-table {
+    margin-bottom: 1rem;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    max-height: 400px; /* 기본 높이 제한 */
+    overflow-y: auto; /* 세로 스크롤 추가 */
+    transition: max-height 0.3s ease; /* 부드러운 확장/축소 애니메이션 */
+  }
+  
+  /* 확장된 상태 */
+  #excel-table.expanded {
+    max-height: none; /* 높이 제한 해제 */
+    overflow-y: visible; /* 스크롤 제거 */
+  }
+  
+  /* 테이블 컨테이너에 그림자 효과 추가 */
+  .excel-table-container {
+    position: relative;
+  }
+  
+  /* 확장/축소 버튼 */
+  .expand-toggle {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background-color: #3b82f6;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease;
+    z-index: 10;
+  }
+  
+  .expand-toggle:hover {
+    background-color: #2563eb;
+  }
+  
+  .expand-toggle.expanded {
+    background-color: #ef4444;
+  }
+  
+  .expand-toggle.expanded:hover {
+    background-color: #dc2626;
+  }
+  
+  .table-controls {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .submit-btn {
+    background-color: #10b981 !important;
+    color: white !important;
+    font-weight: 600 !important;
+  }
+  
+  .submit-btn:hover {
+    background-color: #059669 !important;
+  }
+  
+  /* Handsontable 커스텀 스타일 */
+  .handsontable,
+  .handsontable *,
+  .custom-handsontable,
+  .custom-handsontable * {
+    font-family: 'Noto Sans KR', 'Malgun Gothic', '맑은 고딕', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+  }
+  
+  .handsontable {
+    font-size: 1.1rem;
+  }
+  
+  .handsontable th {
+    background-color: #f3f4f6 !important;
+    color: #374151 !important;
+    font-weight: 600 !important;
+    font-size: 1.2rem !important;
+  }
+  
+  .handsontable td {
+    border: 1px solid #e5e7eb !important;
+    font-size: 1.1rem !important;
+    padding: 8px 12px !important;
+  }
+  
+  /* 발화자 열 강조 - 더 강한 선택자로 우선순위 높임 */
+  .excel-table-container .handsontable td:first-child,
+  .handsontable td:first-child {
+    background-color: #f8fafc !important;
+    font-weight: 700 !important;
+    color: #1e40af !important;
+    border-right: 2px solid #3b82f6 !important;
+    text-align: center !important;
+  }
+  
+  /* 발화자 열 헤더도 Bold 처리 - 더 강한 선택자로 우선순위 높임 */
+  .excel-table-container .handsontable th:first-child,
+  .handsontable th:first-child {
+    font-weight: 700 !important;
+  }
+  
+  .handsontable .htDimmed {
+    background-color: #f9fafb !important;
+    color: #6b7280 !important;
+  }
+  
+  /* 읽기 전용 셀 스타일 */
+  .handsontable .htReadOnly {
+    background-color: #f3f4f6 !important;
+    color: #6b7280 !important;
+    font-style: italic;
+  }
+  
+  .handsontable .htReadOnly:hover {
+    background-color: #e5e7eb !important;
+  }
+  
+  /* 사용자가 새로 추가하는 대화문 구분 스타일 */
+  .handsontable .user-added-row td {
+    background-color: #f0fdf4 !important;
+  }
+  
+  .handsontable .user-added-row td:first-child {
+    background-color: #dcfce7 !important;
+    color: #166534 !important;
+  }
+  
+  /* 챗봇 영역 */
+  .chat-container {
+    background: #ffffff;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    margin-top: 2rem;
+  }
+  
+  .chat-container h1 {
+    color: #2563eb;
+    margin-bottom: 1rem;
+  }
+  
+  #chatbox {
+    min-height: 250px;
+    border: 1px solid #d1d5db;
+    border-radius: 0.75rem;
+    padding: 1rem;
+    background-color: #f3f4f6;
+    white-space: pre-wrap;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+  }
+  
+  #userInput {
+    width: 70%;
+    padding: 0.6rem;
+    font-size: 1rem;
+    border-radius: 999px;
+    border: 1px solid #d1d5db;
+    margin-right: 0.5rem;
+  }
+  
+  /* 버튼 스타일 */
+  #sendBtn,
+  #feedbackBtn,
+  .wide-button {
+    background-color: #3b82f6;
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-weight: 500;
+  }
+  
+  #sendBtn:hover,
+  #feedbackBtn:hover,
+  .wide-button:hover {
+    background-color: #2563eb;
+  }
+  
+  /* 피드백 영역 */
+  .feedback-area {
+    background: #ffffff;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    min-height: 300px;
+    white-space: pre-wrap;
+    font-size: 0.95rem;
+  }
+  
+  .feedback-area .placeholder {
+    color: #6b7280;
+    font-style: italic;
+  }
+  
+  .feedback-title {
+    color: #2563eb;
+    margin-bottom: 0.75rem;
+    font-size: 1.2rem;
+  }
+  
+  .wide-button {
+    width: 100%;
+    margin-top: 1rem;
+    padding: 0.75rem;
+    font-size: 1rem;
+    border-radius: 999px;
+    background-color: #3b82f6;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-weight: 500;
+  }
+  
+  /* 이미지 캐러셀 */
+  .carousel {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    margin: 0 auto;
+  }
+  
+  .carousel img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: 1rem;
+  }
+  
+  .carousel-btn {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.4);
+    color: white;
+    border: none;
+    padding: 0.5rem 0.8rem;
+    cursor: pointer;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.25rem;
+    border-radius: 0.5rem;
+    z-index: 1;
+  }
+  
+  .carousel-btn.left {
+    left: 0.5rem;
+  }
+  
+  .carousel-btn.right {
+    right: 0.5rem;
+  }
+  
+  .carousel-btn:hover {
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+  
+  /* 유저 정보 표시 */
+.user-info {
+  display: inline-flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+  color: #374151;
+  margin: 2rem 0 1rem 0;
+  width: 100%;
+}
+  
+  #logoutBtn {
+    background-color: #ef4444;
+    color: white;
+    border: none;
+    padding: 0.3rem 0.8rem;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  #logoutBtn:hover {
+    background-color: #dc2626;
+  }
+  
+  .saved-result {
+    background-color: #e3f2fd;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.07);
+    margin-bottom: 18px;
+    font-size: 1.05rem;
+  }
+  
+  .saved-header {
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #1976d2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.1rem;
+  }
+  
+  .load-btn {
+    background-color: #3b82f6;
+    color: white;
+    border: none;
+    padding: 0.3rem 0.6rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-size: 0.8rem;
+    margin-right: 0.5rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  .load-btn:hover {
+    background-color: #2563eb;
+  }
+  
+  .delete-btn {
+    background-color: #ff5252;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.97em;
+  }
+  
+  .delete-btn:hover {
+    background-color: #e53935;
+  }
+  
+  .user-entry {
+    background-color: #fff8dc;
+    border-radius: 6px;
+    padding: 4px 0;
+    font-weight: 500;
+  }
+  
+  /* 2열 결과 레이아웃 - 기존 스타일 제거하고 새로운 스타일로 통합 */
+  
+  .column-title {
+    color: #2563eb;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-size: 1.3rem;
+    border-bottom: 2px solid #e5e7eb;
+    padding-bottom: 0.5rem;
+  }
+  
+  .conversation-column .column-title {
+    color: #059669;
+  }
+  
+  .feedback-column .column-title {
+    color: #7c3aed;
+  }
+  
+  .no-results {
+    text-align: center;
+    color: #6b7280;
+    font-style: italic;
+    padding: 2rem;
+  }
+  
+  /* 대화문 테이블 스타일 */
+  .conversation-table {
+    margin-bottom: 1rem;
+  }
+  
+  .conversation-row {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 1rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #f3f4f6;
+  }
+  
+  .conversation-row:last-child {
+    border-bottom: none;
+  }
+  
+  .conversation-row .speaker {
+    font-weight: 700;
+    color: #1e40af;
+    text-align: center;
+    background-color: #f8fafc;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    font-size: 0.9rem;
+  }
+  
+  .conversation-row .message {
+    color: #374151;
+    line-height: 1.5;
+    padding: 0.5rem;
+  }
+  
+  .conversation-row.user-entry .speaker {
+    background-color: #dcfce7;
+    color: #166534;
+  }
+  
+  .conversation-row.user-entry .message {
+    background-color: #f0fdf4;
+    border-radius: 0.5rem;
+  }
+  
+  /* 저장된 결과 컨테이너 - 완전히 새로 설계 */
+#saved-results-container {
+  width: 100% !important;
+  max-width: 1200px !important;
+  margin: 2rem auto 2rem auto !important;
+  box-sizing: border-box !important;
+  padding: 0 2rem !important;
+  background: transparent !important;
+}
+
+/* 2열 레이아웃 - Flexbox 기반으로 새로 설계 */
+.results-columns {
+  display: flex !important;
+  flex-direction: row !important;
+  gap: 2rem !important;
+  width: 100% !important;
+  min-height: 200px !important;
+  margin-top: 2rem !important;
+}
+
+.results-column {
+  flex: 1 !important;
+  min-width: 0 !important;
+  background: #ffffff !important;
+  border-radius: 1rem !important;
+  padding: 1.5rem !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06) !important;
+  border: 1px solid #e5e7eb !important;
+}
+
+/* 피드백 기능 비활성화 시 숨김 처리 */
+.feedback-disabled .right-panel,
+.feedback-disabled .feedback-column {
+  display: none !important;
+}
+
+/* 더 강력한 선택자로 우선순위 높임 */
+#saved-results-container .results-columns {
+  display: flex !important;
+  flex-direction: row !important;
+  gap: 2rem !important;
+  width: 100% !important;
+}
+
+#saved-results-container .results-column {
+  flex: 1 !important;
+  min-width: 0 !important;
+}
+
+/* 결과 카드 스타일 개선 */
+.saved-result {
+  background-color: #f8fafc;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid #e5e7eb;
+}
+  
+  .result-conversation {
+    border-left: 4px solid #059669;
+  }
+  
+  .result-feedback {
+    border-left: 4px solid #7c3aed;
+  }
+  
+  .saved-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    color: #374151;
+  }
+  
+  .saved-header span {
+    font-size: 0.9rem;
+  }
+  
+  /* 헤더 텍스트 클릭 가능하도록 스타일 */
+  .header-text {
+    cursor: pointer;
+    user-select: none;
+    transition: color 0.2s ease;
+  }
+  
+  .header-text:hover {
+    color: #1e40af;
+  }
+  
+  /* 결과 내용 영역 */
+  .result-content {
+    transition: all 0.3s ease;
+    overflow: hidden;
+  }
+  
+  .delete-btn {
+    background-color: #ef4444;
+    color: white;
+    border: none;
+    padding: 0.3rem 0.6rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-size: 0.8rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  .delete-btn:hover {
+    background-color: #dc2626;
+  }
+  
+/* 📥 다운로드 컨트롤 */
+.download-controls {
+  display: flex !important;
+  gap: 8px !important;
+  margin: 10px 0 !important;
+  justify-content: center !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.download-btn {
+  padding: 6px 12px !important;
+  background-color: #3b82f6 !important;
+  color: white !important;
+  border: none !important;
+  border-radius: 6px !important;
+  font-size: 12px !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+  font-family: inherit !important;
+  display: inline-block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.download-btn:hover {
+  background-color: #2563eb !important;
+  transform: translateY(-1px) !important;
+}
+
+.download-btn:active {
+  transform: translateY(0) !important;
+}
+
+.download-btn:disabled {
+  background-color: #9ca3af !important;
+  cursor: not-allowed !important;
+  transform: none !important;
+}
+  
