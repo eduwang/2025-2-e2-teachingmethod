@@ -515,6 +515,7 @@ function renderResultsInColumns(conversationResults, feedbackResults) {
   // 제출 결과 열 (왼쪽)
   const leftColumn = document.createElement("div");
   leftColumn.classList.add("results-column", "conversation-column");
+  leftColumn.style.display = "none";
   leftColumn.innerHTML = `
     <h3 class="column-title">💬 제출된 대화문</h3>
     <div class="column-content"></div>
