@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lesson Play 활동</title>
+  <link rel="stylesheet" href="src/indexStyles.css" />
+  <link rel="stylesheet" href="src/pageLP.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <script type="module" src="/src/pageLPE.js"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+  <div class="page-container feedback-disabled">
+    <div class="user-info">
+      <span id="userInfo">🔐 로그인 상태 확인 중...</span>
+      <button id="logoutBtn" style="display: none;">로그아웃</button>
+    </div>
+
+    <div class="main-content">
+      <!-- left-panel: page1-container 복사 (활동 완료하기 버튼 제거) -->
+      <div class="left-panel">
+        <div class="page1-container">
+          <div class="scenario-box">
+            <h2 class="scenario-title">아래의 상황은 전현정 선생님의 학급에서 학생들이 비례 추론에 대한 다음 과제를 해결하고, 자신의 해결 방법을 설명해야 하는 상황이다.</h2>
+            <p class="scenario-description">로딩 중...</p>
+            <img
+              id="scenario-special-image"
+              class="scenario-special-image"
+              src="imgs/triangle.png"
+              alt="삼각형 구성 요소 안내"
+            />
+          </div>
+          
+          <!-- 기존 대화 로그 영역을 Handsontable로 교체 -->
+          <div class="excel-table-container">
+            <h3>Lesson Play 작성</h3>
+            <button id="expand-toggle" class="expand-toggle" title="테이블 확장/축소">📏 확장</button>
+            <div id="excel-table"></div>
+            <div class="table-controls">
+              <button id="add-row" class="nav-button">행 추가</button>
+              <button id="del-row" class="nav-button">행 삭제</button>
+              <!-- <button class="nav-button undo-btn" id="undo-btn" title="되돌리기">&#x21A9;</button> -->
+              <button id="submit-btn" class="nav-button submit-btn" style="display: none;">제출</button>
+            </div>
+          </div>
+          
+          <div class="button-wrapper">
+              <!-- 활동 완료하기 버튼은 제거, 돌아가기만 유지 -->
+              <!-- <a href="/index.html" class="nav-button back-button">돌아가기</a> -->
+          </div>
+        </div>
+        <!-- 저장된 결과 출력 영역은 page2에선 필요 없다면 생략 (필요하면 추가) -->
+      </div>
+      <!-- right-panel: 기존 피드백 영역 유지 -->
+      <div class="right-panel">
+        <textarea id="inputText" style="display:none"></textarea>
+        <h2 class="feedback-title">
+          💬 피드백 공간
+          <button id="prompt-view-btn" class="prompt-view-btn" title="프롬프트 확인 및 수정">📝 프롬프트</button>
+        </h2>
+        
+        <!-- Tab UI -->
+        <div class="feedback-tabs">
+          <button class="tab-button active" data-tab="line-by-line">📊 Line by Line 결과</button>
+          <button class="tab-button" data-tab="feedback">💬 피드백 결과</button>
+        </div>
+        
+        <!-- Tab Content -->
+        <div class="tab-content">
+          <div id="line-by-line-result" class="tab-pane active">
+            <p class="placeholder">Line by Line 분석 결과가 여기에 표시됩니다.</p>
+          </div>
+          <div id="feedback-result" class="tab-pane">
+            <p class="placeholder">피드백 결과가 여기에 표시됩니다.</p>
+          </div>
+        </div>
+        
+        <button id="feedbackBtn" class="wide-button">제출 / 💬 피드백 받기</button>
+      </div>
+    </div>
+    <div id="saved-results-container"></div>
+  </div>
+
+  <!-- 프롬프트 확인/수정 모달 -->
+  <div id="prompt-modal" class="prompt-modal">
+    <div class="prompt-modal-content">
+      <div class="prompt-modal-header">
+        <h3>📝 피드백 프롬프트 확인 및 수정</h3>
+        <button class="prompt-modal-close" id="prompt-modal-close">&times;</button>
+      </div>
+      <div class="prompt-modal-body">
+        <p class="prompt-info">아래 프롬프트를 수정하여 피드백 형식을 변경할 수 있습니다. 수정 후 저장하면 다음 피드백 생성부터 적용됩니다.</p>
+        <textarea id="prompt-textarea" class="prompt-textarea" rows="15"></textarea>
+      </div>
+      <div class="prompt-modal-footer">
+        <button id="prompt-reset-btn" class="prompt-btn prompt-btn-secondary">기본값으로 복원</button>
+        <button id="prompt-save-btn" class="prompt-btn prompt-btn-primary">저장</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
