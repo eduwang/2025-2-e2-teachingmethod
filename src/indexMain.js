@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // ✅ 버튼 그룹 구성: 관리자면 관리자 버튼도 추가
     navButtons.innerHTML = allowedAdmins.includes(user.uid)
       ? pageLPBtn + pageLPEBtn + adminBtn
-      : pageLPBtn;
+      : pageLPEBtn;
   } else {
     userInfo.textContent = "🔐 로그인되지 않음";
     logoutBtn.style.display = "none";
